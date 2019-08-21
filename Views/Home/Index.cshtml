@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="top_bar">
+    <a class="bigbutton" style="border-right:3px black solid">Chefs</a>
+    <a class="bigbutton" href="Dishes">Dishes</a>
+    <a class="button" href="/newchef">Add a Chef</a>
+</div>
+
+<h2 style="border-bottom: 3px solid black">Check out our roster of Chefs!</h2>
+
+@model List<Chef>
+
+
+<table class="chef_table">
+  <tr>
+    <th>Name</th>
+    <th>Age</th> 
+    <th># of Dishes</th>
+  </tr>
+
+  @foreach(var chef in Model){
+
+    <tr>
+        <td>@chef.FirstName @chef.LastName</td>
+        <td>@AgeCalc.Age(chef.Birthday)</td> 
+        <td>@chef.ChefsDishes.Count</td>
+    </tr>
+  }
+
+</table>
